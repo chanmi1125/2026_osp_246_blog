@@ -1,0 +1,12 @@
+# 메인 페이지 상단 메뉴: 과제의 네 분야
+# 글의 front matter 에 categories 를 Concept / Tip / Debugging / Guide / Explanation 중 하나로 적으면 해당 메뉴에 모입니다.
+- title: 전체
+  url: /
+- title: Concept
+  url: /category/concept/
+- title: Tip · Debugging
+  url: /category/tip-debugging/
+- title: Guide
+  url: /category/guide/
+- title: Explanation
+  url: /category/explanation/

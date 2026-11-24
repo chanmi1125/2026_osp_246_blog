@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{% comment %}
+  분야별 글 목록 페이지 (category/*.md 에서 사용).
+  page.category_names 에 적힌 카테고리 중 하나라도 가진 글을 최신순으로 보여 줍니다.
+{% endcomment %}
+
+{% include home-header.html %}
+
+<h1 class="category-heading">{{ page.title }}</h1>
+<p class="category-desc">{{ page.description }}</p>
+
+{%- assign count = 0 -%}
+<div class="posts">
+  {% for post in site.posts %}
+    {%- assign matched = false -%}
+    {%- for c in post.categories -%}
+      {%- if page.category_names contains c -%}{%- assign matched = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if matched -%}
+    {%- assign count = count | plus: 1 -%}
+    <section class="post-entry">
+      <span class="post-category">{{ post.categories | first }}</span>
+      <h2 class="post-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.date_format }}</time>
+        {%- if post.author -%}<span> • </span><span>{{ post.author }}</span>{%- endif -%}
+      </div>
+      <p>{{ post.excerpt | strip_html }}</p>
+    </section>
+    {%- endif -%}
+  {% endfor %}
+</div>
+
+{% if count == 0 %}
+  <p class="category-empty">아직 작성된 글이 없습니다.</p>
+{% endif %}

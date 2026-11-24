@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <rect width="1200" height="675" fill="#ECE7DA"/>
+  <rect x="24.5" y="24.5" width="1151" height="626" fill="none" stroke="#65736D" stroke-opacity="0.35" stroke-dasharray="6 6"/>
+  <g fill="none" stroke="#65736D" stroke-opacity="0.6" stroke-width="3">
+    <rect x="555" y="275" width="90" height="70"/>
+    <circle cx="580" cy="298" r="8"/>
+    <path d="M555 335l28-24 20 16 18-14 24 22"/>
+  </g>
+  <text x="600" y="395" text-anchor="middle" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="22" fill="#65736D">IMAGE PLACEHOLDER · 이미지를 교체해 주세요</text>
+</svg>

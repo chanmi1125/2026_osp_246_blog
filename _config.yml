@@ -1,0 +1,56 @@
+# =============================================================================
+#  EWHA PICK | Tech Blog — Jekyll 설정
+#  테마: Not Pure Poole (https://github.com/vszhub/not-pure-poole)
+#  이 파일을 수정하면 로컬 서버를 다시 시작해야 반영됩니다.
+# =============================================================================
+
+# ---- 테마 ----
+remote_theme: vszhub/not-pure-poole
+
+# ---- 사이트 정보 ----
+title: "EWHA PICK | Tech Blog"
+description: "이화픽을 만들어가는 과정, 개발 경험과 기술적 고민을 기록합니다."
+lang: ko
+url: "https://chanmi1125.github.io"
+baseurl: "/2026_osp_246_blog"       # 저장소 이름. 저장소를 <아이디>.github.io 로 바꾸면 "" 로 비워 주세요.
+date_format: "%Y.%m.%d"
+timezone: Asia/Seoul
+
+# 왼쪽 커버 영역 색상 (이미지를 쓰려면 cover_image: /assets/images/cover.jpg)
+cover_bg_color: "#123D2B"           # Deep Green
+cover_color: "#F6F3EA"              # Warm Ivory
+
+author:
+  name: "팀246"
+  url: "https://github.com/chanmi1125/2026_osp_246_blog"
+
+# ---- 빌드 ----
+permalink: /posts/:title/
+paginate: 10
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+
+exclude:
+  - _legacy-html
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+
+# ---- 게시글 기본값 (각 글의 front matter 에서 바꿀 수 있음) ----
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      toc: true        # 오른쪽 목차

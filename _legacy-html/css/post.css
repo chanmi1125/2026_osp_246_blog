@@ -1,0 +1,339 @@
+/* ==========================================================================
+   EWHA PICK | Tech Blog — 게시글 상세 페이지 공통 스타일
+   - posts/*.html 다섯 개 파일이 모두 이 파일을 공유합니다.
+   - 개별 게시글 HTML 안에 <style> 을 추가하지 말고, 필요하면 이 파일을 수정해 주세요.
+   ========================================================================== */
+
+.article-wrap {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- Article header ---------- */
+.post-header { padding: 56px 0 36px; }
+
+.post-header .post-category { display: inline-block; }
+
+.post-header h1 {
+  margin-top: 10px;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.38;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.post-byline {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--gray-green);
+}
+.post-byline .author { color: var(--text); font-weight: 600; }
+.post-byline span:empty { display: none; }
+.post-byline span + span::before { content: "·"; margin: 0 8px; color: var(--gray-green); }
+
+.post-cover { margin-bottom: 48px; }
+.post-cover img { width: 100%; background: var(--surface); }
+
+/* ---------- TOC ---------- */
+.toc { font-size: 14px; }
+.toc ol { list-style: none; padding: 0; }
+.toc li.toc-h3 { padding-left: 12px; }
+.toc a {
+  display: block;
+  padding: 4px 0;
+  line-height: 1.5;
+  color: var(--gray-green);
+}
+.toc a:hover { color: var(--text); }
+.toc a.is-active { color: var(--green); font-weight: 600; }
+
+/* 넓은 화면: 본문 오른쪽에 고정 */
+.toc-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(100% + 24px);
+  width: 200px;
+}
+.toc-side-inner {
+  position: sticky;
+  top: calc(var(--header-h) + 40px);
+  max-height: calc(100vh - var(--header-h) - 80px);
+  overflow-y: auto;
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+}
+.toc-label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* 좁은 화면: 본문 위에 접이식 */
+.toc-inline {
+  display: none;
+  margin-bottom: 40px;
+  padding: 16px 20px;
+  background: var(--surface);
+}
+.toc-inline summary {
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.toc-inline ol { margin-top: 10px; }
+
+@media (max-width: 1240px) {
+  .toc-side { display: none; }
+  .toc-inline { display: block; }
+}
+
+/* ---------- Body typography ---------- */
+.post-body { padding-bottom: 72px; }
+.post-body > * + * { margin-top: 24px; }
+
+.post-body p,
+.post-body li {
+  font-size: 17.5px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.post-body h2 {
+  margin-top: 64px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+.post-body h3 {
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+.post-body h2 + *,
+.post-body h3 + * { margin-top: 14px; }
+
+.post-body a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.post-body strong { font-weight: 700; }
+
+.post-body ul,
+.post-body ol { padding-left: 22px; }
+.post-body li + li { margin-top: 6px; }
+
+.post-body hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0; }
+
+.post-body :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  padding: 2px 5px;
+  background: var(--surface);
+  color: #A2412B;
+}
+
+/* ---------- Figure ---------- */
+.post-body figure { margin: 40px 0; }
+.post-body figure img { width: 100%; background: var(--surface); }
+.post-body figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--gray-green);
+  text-align: center;
+}
+
+/* ---------- Blockquote ---------- */
+.post-body blockquote {
+  margin: 40px 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--green);
+}
+.post-body blockquote p { color: var(--text-sub); }
+.post-body blockquote cite {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-style: normal;
+  color: var(--gray-green);
+}
+
+/* ---------- Table ---------- */
+.table-wrap { margin: 40px 0; overflow-x: auto; }
+.post-body table {
+  width: 100%;
+  min-width: 440px;
+  border-collapse: collapse;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+.post-body caption {
+  caption-side: bottom;
+  padding-top: 10px;
+  font-size: 14px;
+  color: var(--gray-green);
+}
+.post-body th,
+.post-body td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.post-body thead th {
+  background: var(--surface);
+  border-bottom: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- Code block ---------- */
+.code-block { position: relative; margin: 32px 0; }
+
+.code-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 6px 0;
+  font-size: 13px;
+  color: var(--gray-green);
+}
+
+.copy-btn {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 2px 0;
+  font-size: 13px;
+  color: var(--gray-green);
+  cursor: pointer;
+}
+.copy-btn:hover { color: var(--green); text-decoration: underline; }
+
+.post-body pre {
+  margin: 0;
+  padding: 20px 22px;
+  overflow-x: auto;
+  background: #16201B;
+  color: #E8E6DE;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.7;
+  tab-size: 2;
+}
+.post-body pre code { font-family: inherit; }
+
+/* Prism tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata { color: #7D8B84; }
+.token.punctuation,
+.token.operator { color: #B8BDB4; }
+.token.keyword,
+.token.atrule,
+.token.important,
+.token.selector,
+.token.tag { color: #E3A77B; }
+.token.string,
+.token.char,
+.token.attr-value,
+.token.url,
+.token.regex { color: #A6CF98; }
+.token.number,
+.token.boolean,
+.token.constant,
+.token.symbol { color: #D7B66E; }
+.token.function,
+.token.class-name { color: #8EC3E8; }
+.token.property,
+.token.attr-name,
+.token.variable,
+.token.parameter { color: #E8E6DE; }
+
+/* ---------- Writing guide (작성 완료 후 삭제) ---------- */
+.writing-guide {
+  margin-bottom: 48px;
+  padding: 20px 22px;
+  border-left: 3px solid #D7B66E;
+  background: #FBF3DC;
+}
+.writing-guide p,
+.writing-guide li { font-size: 15px; line-height: 1.7; color: var(--text-sub); }
+.writing-guide > * + * { margin-top: 8px; }
+.writing-guide ul { padding-left: 18px; }
+
+/* ---------- Bottom: author / prev·next ---------- */
+.post-footer {
+  padding: 32px 0 80px;
+  border-top: 1px solid var(--line);
+}
+
+.post-nav {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.post-nav a,
+.post-nav .is-empty {
+  display: block;
+  height: 100%;
+  padding: 18px 20px;
+  background: var(--surface);
+}
+.post-nav .next { text-align: right; }
+.post-nav .is-empty { background: none; }
+
+.post-nav small {
+  display: block;
+  font-size: 13px;
+  color: var(--gray-green);
+}
+.post-nav strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+.post-nav a:hover strong { color: var(--green); }
+
+.back-to-list {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green);
+}
+.back-to-list:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .post-header { padding: 32px 0 28px; }
+  .post-header h1 { font-size: 26px; }
+  .post-byline { font-size: 14px; margin-top: 14px; }
+  .post-cover { margin: 0 calc(var(--gutter) * -1) 36px; }
+  .post-body p,
+  .post-body li { font-size: 16.5px; }
+  .post-body h2 { margin-top: 52px; font-size: 22px; }
+  .post-body h3 { margin-top: 32px; font-size: 18px; }
+  .post-body pre {
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 16px var(--gutter);
+    font-size: 13px;
+  }
+  .post-nav { grid-template-columns: 1fr; }
+  .post-nav .next { text-align: left; }
+  .post-nav .is-empty { display: none; }
+}

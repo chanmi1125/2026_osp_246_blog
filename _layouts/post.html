@@ -1,0 +1,43 @@
+---
+layout: default
+---
+{% comment %}
+  테마의 post 레이아웃을 덮어쓴 파일입니다.
+  변경점: 카테고리, 예상 읽기 시간(한국어 약 500자/분), 한국어 문구, 이전/다음 글, 목록으로 돌아가기
+{% endcomment %}
+
+{%- assign char_count = content | strip_html | strip_newlines | size -%}
+{%- assign read_minutes = char_count | divided_by: 500 | plus: 1 -%}
+
+<article class="post">
+  {%- if page.categories.size > 0 -%}
+    <span class="post-category">{{ page.categories | first }}</span>
+  {%- endif -%}
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: site.date_format }}</time>
+    {%- if page.author -%}
+      <span> • </span><span itemprop="author">{{ page.author }}</span>
+    {%- endif -%}
+    <span> • </span><span>{{ read_minutes }}분 읽기</span>
+  </div>
+
+  {{ content }}
+
+  {% if page.tags %}
+    {% include post-tags.html %}
+  {% endif %}
+</article>
+
+<nav class="related">
+  <h2>다른 글</h2>
+  <ul class="related-posts">
+    {%- if page.previous -%}
+      <li><a href="{{ page.previous.url | relative_url }}">← 이전 글: {{ page.previous.title }}</a></li>
+    {%- endif -%}
+    {%- if page.next -%}
+      <li><a href="{{ page.next.url | relative_url }}">다음 글 →: {{ page.next.title }}</a></li>
+    {%- endif -%}
+    <li><a href="{{ '/' | relative_url }}">전체 글 목록으로 돌아가기</a></li>
+  </ul>
+</nav>

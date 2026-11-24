@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  게시글 파일: posts/guide.html  (Guide)
+  - 이 파일은 담당 팀원만 수정합니다.
+  - 수정할 곳: ① <title>·description  ② post-header 의 제목·작성자·작성일  ③ post-body 본문
+  - 헤더/푸터/목차/이전·다음 글 영역은 공통 구조이므로 수정하지 마세요.
+  - 영어로 작성한다면 아래 <html lang="ko"> 를 lang="en" 으로 바꿔 주세요.
+  ============================================================
+-->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guide 게시글 제목을 입력하세요 | EWHA PICK Tech Blog</title>
+  <meta name="description" content="이화픽 프로젝트의 특정 작업을 단계별로 따라 할 수 있도록 안내하는 글입니다. 실제 내용에 맞는 한두 문장 요약으로 교체해 주세요.">
+  <meta name="theme-color" content="#F6F3EA">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/post.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">본문 바로가기</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html" aria-label="EWHA PICK Tech Blog 홈">
+        <span class="brand-name">EWHA PICK</span>
+        <span class="brand-sub">tech</span>
+      </a>
+      <nav class="header-nav" aria-label="사이트 메뉴">
+        <a href="https://github.com/chanmi1125/2026_osp_246_blog" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <article class="article-wrap">
+      <!-- ===== 게시글 정보: 제목·작성자·작성일을 수정하세요 ===== -->
+      <header class="post-header">
+        <span class="post-category">Guide</span>
+        <h1>Guide 게시글 제목을 입력하세요</h1>
+        <p class="post-byline"><span class="author">작성자 이름</span><span><time>2026.MM.DD</time></span><span data-reading-time></span></p>
+      </header>
+
+      <!-- 대표 이미지가 필요하면 아래 주석을 풀어 사용하세요.
+      <figure class="post-cover">
+        <img src="../assets/images/guide/cover.png" alt="대표 이미지 설명">
+      </figure>
+      -->
+
+      <!-- 목차: 넓은 화면에서는 오른쪽, 좁은 화면에서는 본문 위에 표시됩니다 (자동 생성, 수정하지 마세요) -->
+      <aside class="toc toc-side" aria-label="목차">
+        <div class="toc-side-inner">
+          <p class="toc-label">목차</p>
+          <ol data-toc></ol>
+        </div>
+      </aside>
+      <details class="toc toc-inline">
+        <summary>목차</summary>
+        <ol data-toc></ol>
+      </details>
+
+      <div class="post-body">
+        <!-- ===== 작성 가이드: 글 작성을 마치면 이 div 전체를 삭제하세요 ===== -->
+        <div class="writing-guide">
+          <p><strong>작성 가이드 · Guide</strong></p>
+          <p>독자가 글을 읽으며 <strong>그대로 따라 할 수 있는 단계별 안내</strong>를 제공하는 글입니다. 예: 개발 환경 구성, 프로젝트 실행 방법, 특정 도구 사용법 등.</p>
+          <ul>
+            <li><strong>분량</strong>: 300단어 이상, <strong>5~7분 안에 읽을 수 있는 길이</strong>로 씁니다. 제목 아래에 예상 읽기 시간이 자동으로 표시됩니다.</li>
+            <li><strong>단일 주제</strong>: 제목만 보고도 무엇을 다루는지 알 수 있게 씁니다.</li>
+            <li><strong>완결성</strong>: 처음 보는 사람도 처음부터 끝까지 따라 할 수 있어야 합니다.</li>
+            <li><strong>코드와 설명</strong>: 코드 블록만 덩그러니 두지 말고, 블록마다 무엇을 하는 코드인지 설명을 붙입니다.</li>
+            <li>아래 소제목은 Lecture 11의 <strong>Common Structure</strong>(배경 → 문제/목표 → 단계 → 결과 → 배운 점 → 참고 자료)를 따릅니다. 주제에 맞게 이름을 바꿔도 됩니다.</li>
+            <li>대제목은 <code>&lt;h2&gt;</code>, 소제목은 <code>&lt;h3&gt;</code>을 쓰면 목차가 자동으로 만들어집니다. 이미지는 <code>assets/images/guide/</code> 폴더에 넣고 <code>../assets/images/guide/파일명</code>으로 불러옵니다.</li>
+            <li>한국어 또는 영어로 작성하고, 실제로 구현한 기능과 사용한 기술만 씁니다.</li>
+            <li>메인 페이지(<code>index.html</code>)의 [03] 항목 제목·요약·작성자·작성일도 함께 맞춰 주세요.</li>
+          </ul>
+        </div>
+
+        <!-- ===== 본문 시작 ===== -->
+        <h2>배경 (Context)</h2>
+        <p>이 주제를 다루게 된 상황을 적어 주세요. 이화픽의 어떤 기능을 만들거나 고치던 중이었는지 구체적으로 설명합니다. 이 문단은 임시 텍스트이므로 실제 내용으로 교체해 주세요.</p>
+        <h2>목표와 준비물 (Goal)</h2>
+        <p>이 가이드를 따라 하면 무엇을 할 수 있는지, 필요한 프로그램과 버전은 무엇인지 적어 주세요. 강의 예시: Windows에서 Flask와 Pyrebase4 설치하기 이 문단은 임시 텍스트이므로 실제 내용으로 교체해 주세요.</p>
+        <h2>진행 단계 (Steps)</h2>
+        <h3>1단계</h3>
+        <p>첫 번째 단계에서 할 일과 입력할 명령어를 적어 주세요. 이 문단은 임시 텍스트이므로 실제 내용으로 교체해 주세요.</p>
+        <h3>2단계</h3>
+        <p>두 번째 단계를 설명해 주세요. 필요한 만큼 단계를 추가합니다. 이 문단은 임시 텍스트이므로 실제 내용으로 교체해 주세요.</p>
+        <h3>3단계</h3>
+        <p>마지막 단계를 설명해 주세요. 이 문단은 임시 텍스트이므로 실제 내용으로 교체해 주세요.</p>
+
+        <!-- ▼ 아래는 본문에서 사용할 수 있는 요소 예시입니다. 필요한 것만 남기고 수정하거나 삭제하세요. -->
+
+        <figure>
+          <img src="../assets/images/placeholder.svg" alt="이미지에 대한 설명을 입력하세요" width="1200" height="675" loading="lazy">
+          <figcaption>그림 1. 이미지 캡션을 입력하세요. 이미지는 <code>assets/images/guide/</code> 폴더에 넣어 주세요.</figcaption>
+        </figure>
+
+        <pre data-filename="example.js"><code class="language-javascript">// 예시 코드입니다. 실제 프로젝트 코드로 교체해 주세요.
+function greet(name) {
+  const message = `Hello, ${name}!`;
+  return message;
+}
+
+console.log(greet("EWHA PICK"));</code></pre>
+
+        <div class="table-wrap">
+          <table>
+            <caption>표 1. 표 캡션을 입력하세요.</caption>
+            <thead>
+              <tr><th>항목</th><th>설명</th><th>비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>항목 1</td><td>설명을 입력하세요.</td><td>-</td></tr>
+              <tr><td>항목 2</td><td>설명을 입력하세요.</td><td>-</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote>
+          <p>강조하고 싶은 문장이나 인용문을 입력하세요.</p>
+          <cite>— 출처 (선택 사항)</cite>
+        </blockquote>
+
+        <!-- ▲ 요소 예시 끝 -->
+
+        <h2>결과 확인 (Result)</h2>
+        <p>모든 단계를 마쳤을 때 보이는 화면을 스크린샷으로 보여 주세요. 자주 나는 오류와 해결법도 적으면 좋습니다. 이 문단은 임시 텍스트이므로 실제 내용으로 교체해 주세요.</p>
+        <h2>배운 점 (What I learned)</h2>
+        <p>이 경험으로 알게 된 점을 두세 문장으로 간단히 정리해 주세요. 이 문단은 임시 텍스트이므로 실제 내용으로 교체해 주세요.</p>
+        <h2>참고 자료 (References)</h2>
+        <ul>
+          <li><a href="https://docs.github.com/en/pages/quickstart" target="_blank" rel="noopener noreferrer">참고한 문서 제목</a> — 링크와 제목을 실제 참고 자료로 교체하세요.</li>
+          <li>공식 문서, 강의 자료, 참고한 글의 링크를 남겨 주세요.</li>
+        </ul>
+        <!-- ===== 본문 끝 ===== -->
+      </div>
+
+      <footer class="post-footer">
+        <ul class="post-nav" aria-label="이전 글, 다음 글">
+          <li><a class="prev" href="debugging.html" rel="prev"><small>이전 글</small><strong>Tip / Debugging</strong></a></li>
+          <li><a class="next" href="explanation-1.html" rel="next"><small>다음 글</small><strong>Explanation</strong></a></li>
+        </ul>
+        <a class="back-to-list" href="../index.html">← 목록으로 돌아가기</a>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><span class="footer-brand">이화픽 EWHA PICK</span> · 이화인을 위한 마감 할인 상품 사전 결제 및 픽업 마켓<br>
+      팀246 · 2026 오픈소스프로그래밍</p>
+      <div class="footer-links">
+        <a href="https://github.com/chanmi1125/2026_osp_246_blog" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span>© <span data-year>2026</span> Team 246</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 코드 문법 강조 (Prism.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

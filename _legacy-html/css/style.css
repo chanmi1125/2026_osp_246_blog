@@ -1,0 +1,265 @@
+/* ==========================================================================
+   EWHA PICK | Tech Blog — 공통 스타일
+   - 모든 페이지(index.html, posts/*.html)가 이 파일을 공유합니다.
+   - 색상·글꼴은 아래 :root 변수에서만 바꿔 주세요.
+   - 게시글 본문 전용 스타일은 post.css 에 있습니다.
+   ========================================================================== */
+
+:root {
+  --ivory: #F6F3EA;        /* Warm Ivory  — 배경 */
+  --green: #123D2B;        /* Deep Green  — 브랜드, 제목, 링크 */
+  --gray-green: #65736D;   /* Gray Green  — 보조 텍스트 */
+
+  --text: #191F1C;
+  --text-sub: #4A5550;
+  --surface: #EEEADF;      /* 코드·표 머리글 등 한 단계 어두운 면 */
+  --line: #E2DDD0;
+
+  --font-sans: "IBM Plex Sans KR", -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --page-max: 1040px;
+  --gutter: 24px;
+  --header-h: 60px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 20px);
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, p, ul, ol, figure, blockquote { margin: 0; }
+button { font: inherit; color: inherit; }
+
+::selection { background: rgba(18, 61, 43, 0.15); }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  padding: 8px 12px;
+  background: var(--green);
+  color: var(--ivory);
+  font-size: 14px;
+  z-index: 100;
+}
+.skip-link:focus { top: 12px; }
+
+.container {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ivory);
+}
+.site-header.is-scrolled { border-bottom: 1px solid var(--line); }
+
+.site-header .container {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--green);
+}
+.brand-name {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.brand-sub {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-sub);
+}
+.header-nav a { padding: 8px 10px; }
+.header-nav a:hover { color: var(--green); }
+
+/* ---------- Index: hero ---------- */
+.hero { padding: 72px 0 40px; }
+
+.hero h1 {
+  color: var(--green);
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+}
+.hero p {
+  margin-top: 12px;
+  font-size: 17px;
+  color: var(--text-sub);
+}
+
+/* ---------- Index: category tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  flex: none;
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-green);
+  cursor: pointer;
+}
+.tab:hover { color: var(--text); }
+.tab[aria-selected="true"] { color: var(--green); border-bottom-color: var(--green); }
+
+/* ---------- Index: post list ---------- */
+.post-list {
+  list-style: none;
+  padding: 8px 0 96px;
+}
+
+.post-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 64px;
+  align-items: center;
+  padding: 32px 0;
+}
+
+.post-category {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.post-title {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.post-summary {
+  margin-top: 8px;
+  max-width: 40em;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-sub);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-meta {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--gray-green);
+}
+.post-meta span + span::before { content: "·"; margin: 0 6px; }
+
+.post-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface);
+}
+.post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-item:hover .post-title { color: var(--green); }
+.post-item:hover .post-thumb img { transform: scale(1.03); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--gray-green);
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+.footer-brand { color: var(--green); font-weight: 700; }
+.footer-links { display: flex; gap: 16px; }
+.footer-links a:hover { color: var(--green); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  :root { --gutter: 20px; --header-h: 56px; }
+  .brand-name { font-size: 19px; }
+  .brand-sub { font-size: 15px; }
+  .header-nav { font-size: 14px; }
+  .hero { padding: 40px 0 28px; }
+  .hero h1 { font-size: 26px; }
+  .hero p { font-size: 15.5px; }
+  .tab { font-size: 15px; }
+  .post-item {
+    grid-template-columns: minmax(0, 1fr) 96px;
+    gap: 16px;
+    align-items: start;
+    padding: 24px 0;
+  }
+  .post-title { font-size: 17.5px; }
+  .post-summary { font-size: 14.5px; margin-top: 4px; }
+  .post-meta { font-size: 13px; margin-top: 10px; }
+  .post-thumb { aspect-ratio: 1 / 1; margin-top: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
