@@ -268,7 +268,7 @@ return render_template("student/product_list/product_list.html",
 
 ### 할인 유형 필터링
 
-![할인 유형 필터링 화면]({{ '/assets/images/explanation-1/discount-filter.png' | relative_url }})
+![할인 유형 필터링 화면]({{ '/assets/images/explanation-1/product-filter.png' | relative_url }})
 *그림 2. 마감 할인 상품을 선택한 화면*
 
 마감 할인 메뉴를 선택하면 전체 상품 중 마감 할인에 해당하는 상품만 표시된다. 선택된 할인 유형은 활성화된 메뉴를 통해 확인할 수 있다.
