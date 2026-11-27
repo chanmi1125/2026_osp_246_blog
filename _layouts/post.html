@@ -6,7 +6,14 @@ layout: default
   변경점: 카테고리, 예상 읽기 시간(한국어 약 500자/분), 한국어 문구, 이전/다음 글, 목록으로 돌아가기
 {% endcomment %}
 
-{%- assign char_count = content | strip_html | strip_newlines | size -%}
+{%- comment -%} 읽기 시간: 코드 블록과 공백을 뺀 글자 수 기준, 한국어 약 500자/분 {%- endcomment -%}
+{%- assign parts = content | split: '</pre>' -%}
+{%- assign prose = "" -%}
+{%- for part in parts -%}
+  {%- assign before_code = part | split: '<pre' | first -%}
+  {%- assign prose = prose | append: before_code -%}
+{%- endfor -%}
+{%- assign char_count = prose | strip_html | strip_newlines | remove: " " | size -%}
 {%- assign read_minutes = char_count | divided_by: 500 | plus: 1 -%}
 
 <article class="post">
